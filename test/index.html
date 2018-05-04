@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Test for ui-logger</title>
+	<link rel="stylesheet" type="text/css" href="../src/ui-logger-dom.css" />
+	<script src="../src/ui-logger-dom.js"></script>
+</head>
+<body>
+	<h1>Test for ui-logger</h1>
+	<h5>A simple demonstration of the ui-logger utility</h5>
+	<div>You should see a small square where you can see text appearing in one of the corners of the page.</div>
+	<div>Be sure that your browser lets you load files from your filesystem through "file://" protocol, or otherwise, the test could fail.</div>
+
+	<script type="text/javascript">
+		window.addEventListener("load", function() {
+			
+			var logger = new UILogger().show();
+
+			var msgs = [
+				"This is a message",
+				"This is another message",
+				"Lorem ipsum sometimes is boring",
+				"Feel free to use and abuse of this library",
+				"It is a simple utility to ease the job sometimes",
+				"Not a big deal, but sometimes, you know, it is good",
+				"Simple visual web logging",
+				"That is it",
+				"And just it",
+				"Also you can customize the CSS",
+				"And get awesome animations for your logging"
+			];
+
+			var counter = 0;
+			var id = setInterval(function () {
+				if(counter < msgs.length) {
+					logger.log(msgs[counter++]);
+				} else {
+					clearInterval(id);
+					alert("At this moment, you should have a dark square on the bottom-right corner of the window, with some messages appearing inside.");
+					logger.hide();
+					setTimeout(function() {
+						alert("Now, it should not appear");
+						logger.show();
+						setTimeout(function() {
+							alert("Now, it should appear again");
+							logger.close();
+							alert("And now, it should disappear again");
+						}, 1000);
+					}, 1000);
+				}
+			}, 700);
+
+		});
+	</script>
+
+</body>
+</html>

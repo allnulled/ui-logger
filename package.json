@@ -1,0 +1,15 @@
+{
+  "name": "ui-logger-dom",
+  "version": "1.0.0",
+  "description": "Simple utility to log data using the DOM instead of the console.",
+  "main": "src/ui-logger-dom.js",
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "docs": "node_modules/.bin/javadoc2json -i 'src/**/*.js' -o docs/docs.json",
+    "test": "echo 'Open the file at test/test.html to see the test'"
+  },
+  "devDependencies": {
+    "javadoc2json": "^1.0.6"
+  }
+}
